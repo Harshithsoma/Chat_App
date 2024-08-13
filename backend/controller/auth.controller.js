@@ -35,8 +35,8 @@ export const signup = async (req, res) => {
       res.status(201).json({
         _id: newUser._id,
         username: newUser.username,
-        // fullName: newUser.fullName,
         profilePic: newUser.profilePic,
+        fullName: newUser.fullName,
       });
     } else {
       res.status(400).json({ error: "Error adding user into database" });
@@ -63,6 +63,7 @@ export const login = async (req, res) => {
       _id: user._id,
       username: user.username,
       profilePic: user.profilePic,
+      fullName: user.fullName,
     });
     console.log(`user ${user.username} logged in successfully`);
   } catch (error) {

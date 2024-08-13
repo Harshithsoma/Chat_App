@@ -7,7 +7,8 @@ import authRoute from "./routes/auth.route.js";
 import messageRoute from "./routes/message.route.js";
 
 import { connectToMongoDB } from "./db/dbauth.js";
-const app = express();
+import { app, server } from "./socket/socket.js";
+// const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("Chat application development is in progress");
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   connectToMongoDB();
   console.log(`server is running on port ${port}`);
 });
